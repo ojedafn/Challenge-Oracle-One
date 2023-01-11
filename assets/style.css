@@ -1,0 +1,124 @@
+body{
+    background-color: #E5E5E5;
+    font-family:'Inter', sans-serif ;
+}
+/* nav */
+a img{
+    margin: 1rem;
+}
+/* contenedor */
+.father-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+/* card blanca */
+.card{
+    background-color: white;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px; 
+    font-family:'Inter', sans-serif ;
+    text-align: center;  
+    width: 390px;
+}
+.img{
+    width: 100%;
+    height: auto;
+}
+.bold{
+    color: #343A40;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 0 0.5em;
+}
+
+/* form */
+form input{
+    border: none;
+    background-color: #E5E5E5;
+    font-family:'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    text-decoration: none;
+    width: 100%;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #0A3871;
+    border: none;
+}
+form input:focus {
+    outline: solid 2px #49505750;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+}
+.small{
+    font-size: 12px;
+    color: #495057;
+}
+.fa-exclamation{
+    border-radius: 100%;
+    background-color: #343a4098;
+    color: white;
+    padding:0.3rem 0.5rem;
+}
+button{
+    border-radius: 24px;
+    font-family:'Inter', sans-serif ;
+    padding: 24px;
+    width: 12rem;    
+}
+.encriptar{
+    background-color: #0A3871;
+    border: none;
+    color: white;
+}
+.desencriptar{
+    background-color: #D8DFE8;
+    border: solid 1px #0A3871;
+    color: #0A3871;
+}
+
+/*mobile*/
+@media (max-width: 820px) {
+    form input{        
+    padding-bottom: 20rem;
+    font-size: large;
+    }
+    form{
+        margin-bottom: 2rem;
+    }
+    .big{
+        height: 60vh;
+    }
+    .img{
+        display: none;
+    }
+
+}
+/* desktop */
+@media (min-width: 821px) {
+    form input{        
+    padding-bottom: 35rem;
+    }
+    .father-row{
+        flex-wrap: nowrap !important;
+    }
+    .child{
+        height: 80vh;
+    }
+    .big{
+        width: 50vw;
+    }
+    .card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.none{
+    display: none;
+}
+.textoDesencriptado a{
+    text-decoration: none;
+    color: #343A40;
+}

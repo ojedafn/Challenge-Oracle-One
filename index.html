@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador Ojeda Florencia</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
+    <!-- mi css -->
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css">
+
+</head>
+<body>
+    <a href="https://www.aluracursos.com/?gclid=CjwKCAiA2fmdBhBpEiwA4CcHzWXt8RXsM2LNcY8ARxRUzGxEg415WAWW71szRlg5XqwurBEPZib7TBoCOXQQAvD_BwE" target="_blank">
+        <img src="./assets/img/Vector.png" alt="Logo Alura">
+    </a>
+
+    <div class="father-row">
+        
+        <div class="child big">
+            <form action="#">
+                <input type="text"  placeholder="Ingrese el texto aqui" required>
+                <p class="small"> 
+                    <i class="fa fa-exclamation" aria-hidden="true"></i>
+                     Solo letras minúsculas y sin acentos
+                </p>
+                <button type="submit" class="encriptar">Encriptar</button>
+                <button class="desencriptar">Desencriptar</button>
+            </form>
+        </div>
+
+        <div class="child card father-col">
+            <div class="change">
+                <img class="img" src="./assets/img/Muñeco.png" alt="Imagen previa al texto encriptado o desencriptado">
+                <p class="bold">Ningún mensaje fue encontrado</p>
+                <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+            <div class="textoDesencriptado none">
+                
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script src="./assets/js/encirptarDesencriptar.js"></script>
+<!-- <script src="./assets/js/copyPaste.js"></script> -->
+</html>
