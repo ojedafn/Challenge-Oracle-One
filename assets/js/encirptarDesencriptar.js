@@ -1,66 +1,59 @@
 let input = document.querySelector('input')
-let div = document.querySelector('.change')
-let parrafo = document.querySelector('.textoDesencriptado')
+let divHome = document.querySelector('.change')
+let divTexto = document.querySelector('.textoDesencriptado')
+let divCopy = document.querySelector('.copy')
+let copy = document.querySelector('.btncopy')
+let userText;
 
 // ENCRIPTAR
 let buttonEncriptar = document.querySelector('.encriptar')
 
 buttonEncriptar.addEventListener("click",(e)=>{
     e.preventDefault()
-    let userText = input.value.toLowerCase()
+    encriptador()
     //llamar a la funcion solo si la validacion del texto nos da true 
-    if (validarForm(userText)) {
-        encriptador(userText)
-    } else {
-        alert("ingrese unicamente letras sin tildes")
-    }    
 })
 
-const encriptador = function(texto){
-    //guardo el texto como letras separadas en un array
-    let aux = texto.split('')
-    let textoEncriptado = []
+const encriptador = function(){
+    userText = input.value.toLowerCase()
+    if (validarForm(userText)) {
+        // userText = userText
+        //la /g al final de la expresion regular determina que busque todas las coincidencias y no solo la primera
+        // .replace(/e/g, "enter")        
+        // .replace(/i/g, "imes")
+        // .replace(/a/g, "ai")
+        // .replace(/o/g, "ober")
+        // .replace(/u/g, "ufat")
 
-    //recorrer el array buscando las vocales y cambiarlas por sus codigos
-    aux.forEach(letra => {
-        if(letra === "a"){
-            textoEncriptado.push("ai")
-        }else if(letra === "e"){
-            textoEncriptado.push("enter")
-        }else if(letra === "i"){
-            textoEncriptado.push("imes")
-        }else if(letra === "o"){
-            textoEncriptado.push("ober")
-        }else if(letra === "u"){
-            textoEncriptado.push("ufat")
-        }else{
-            textoEncriptado.push(letra)
+        //mas eficiente
+        let aux = "";
+        for (let i = 0; i < userText.length; i++) {
+            if(userText.charAt(i) === "a"){
+                aux += "ai"
+            }else if(userText.charAt(i) === "e"){
+                aux +="enter"
+            }else if(userText.charAt(i) === "i"){
+                aux +="imes"
+            }else if(userText.charAt(i) === "o"){
+                aux +="ober"
+            }else if(userText.charAt(i) === "u"){
+                aux +="ufat"
+            }else{
+                aux += userText.charAt(i)
+            }           
         }
-    });
-    // //elimino los espacios
-    // textoEncriptado = textoEncriptado.map((elemnt)=>{
-    //     if(elemnt != ' ') return elemnt
-    // })
+        userText = aux
 
-    //unifico el array
-    textoEncriptado = textoEncriptado.join('')
-
-    //modifico el html
-    div.classList.add('none')
-    parrafo.classList.remove('none')
-    parrafo.innerHTML = `
-        <p> ${textoEncriptado}</p>
-        <i class="far fa-copy"></i>
-        <a href="http://">Copiar</a>
-        `
-
-}
-
-//valido que sean letras unicamente 
-const validarForm = function(inputtxt){
-    var letters = /^[A-Za-z\s]*$/;
-    if(inputtxt.match(letters) && inputtxt !== "" )
-        return true;
+        //modifico el html
+        divHome.classList.add('none')
+        divTexto.classList.remove('none')
+        divCopy.classList.remove('none')
+        divTexto.innerHTML = `
+            <h1> ${userText}</h1>
+            `
+    } else {
+            alert("ingrese unicamente letras sin tildes")
+    }  
 }
 
 //DESENCRIPTAR 
@@ -68,56 +61,73 @@ let buttonDesencriptar = document.querySelector('.desencriptar')
 
 buttonDesencriptar.addEventListener("click",(e)=>{
     e.preventDefault()
-    let userText = input.value.toLowerCase()
-    if (validarForm(userText)) {
-        desencriptador(userText)
-    } else {
-        alert("ingrese unicamente letras sin tildes")
-    }    
+    desencriptador()  
 })
 
 const desencriptador = function(arr){
-    //guardo el array como letras separadas
-    let aux = arr.split('')
-    console.log(aux);
-    let textoDesencriptado = []
-
-    for (let i = 0; i < arr.length; i++) {
-        //element equivale a la letra en cada vuelta
-        const letra = arr[i];
-
+    userText = input.value.toLowerCase()
+    if (validarForm(userText)) {
+        //la /g al final de la expresion regular determina que busque todas las coincidencias y no solo la primera      
+        // userText = userText
+        // .replace(/enter/g, "e")        
+        // .replace(/imes/g, "i")
+        // .replace(/ai/g, "a")
+        // .replace(/ober/g, "o")
+        // .replace(/ufat/g, "u")
+        
         //si la letra es una vocal elimino las siguientes posiciones equivalentes a la encriptacion en las vueltas de i
-        if(letra === "a"){
-            textoDesencriptado.push(letra)
-            i+=1
-        }else if(letra === "e"){
-            textoDesencriptado.push(letra)
-            i+=4
-        }else if(letra === "i"){
-            textoDesencriptado.push(letra)
-            i+=3
-        }else if(letra === "o"){
-            textoDesencriptado.push(letra)
-            i+=3
-        }else if(letra === "u"){
-            textoDesencriptado.push(letra)
-            i+=3
-        }else{
-            textoDesencriptado.push(letra)
-        }        
+        let aux = "";
+        for (let i = 0; i < userText.length; i++) {
+            if(userText.charAt(i) === "a"){
+                aux += "a"
+                i ++
+            }else if(userText.charAt(i) === "e"){
+                aux +="e"
+                i += 4
+            }else if(userText.charAt(i) === "i"){
+                aux +="i"
+                i += 3
+            }else if(userText.charAt(i) === "o"){
+                aux +="o"
+                i += 3
+            }else if(userText.charAt(i) === "u"){
+                aux +="u"
+                i += 3
+            }else{
+                aux += userText.charAt(i)
+            }           
+        }
+        userText = aux
+        
+        //modifico el html
+        divHome.classList.add('none')
+        divTexto.classList.remove('none')
+        divCopy.classList.remove('none')
+        divTexto.innerHTML = `
+            <h1> ${userText}</h1>
+            `
+    } else {
+            alert("ingrese unicamente letras sin tildes")
     }
-    console.log(textoDesencriptado);
-    //unifico el array separandolo por los espacios de cada posicion
-    textoDesencriptado = textoDesencriptado.join('')
-    console.log(textoDesencriptado)
-
-    //modifico el html
-    div.classList.add('none')
-    parrafo.classList.remove('none')
-    parrafo.innerHTML = `
-        <p> ${textoDesencriptado}</p>
-        <i class="far fa-copy"></i>
-        <a href="">Copiar</a>
-        `    
+           
 }
+
+
+//valido que sean letras unicamente 
+const validarForm = function(inputtxt){
+    var letters = /^[A-Za-z\s]*$/
+    if(inputtxt.match(letters) && inputtxt !== "" )
+        return true
+}
+
+// COPIAR 
+
+function copiador(){
+    console.log("xoxo")
+    navigator.clipboard.writeText(userText)
+    console.log("copiado " + userText)
+    // divCopy.innerHTML += `<p class="small">Copiado!</p>`
+}
+copy.addEventListener("click", copiador)
+
 
