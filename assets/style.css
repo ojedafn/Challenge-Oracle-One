@@ -130,3 +130,7 @@ button{
     width: auto;
     padding: 0.3rem;
 }
+.copy button:active {
+    box-shadow: 0 1px rgba(102, 102, 102, 0.455);
+    transform: translateY(2px);
+}
